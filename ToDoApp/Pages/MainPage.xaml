@@ -32,5 +32,10 @@
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Task Details" FontSize="24" Margin="10" x:Name="tbTaskDetail"/>
         </StackPanel>
+        <Button x:Name="btnAdd"
+                Content="Добавить"
+                Click="btnAdd_Click"
+                FontSize="15"
+                Width="100"/>
     </Grid>
 </Page>

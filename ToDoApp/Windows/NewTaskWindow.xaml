@@ -1,0 +1,48 @@
+﻿<Window x:Class="ToDoApp.Windows.NewTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoApp.Windows"
+        mc:Ignorable="d"
+        Title="NewTaskWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+        <TextBlock x:Name="TblName"
+                   Text="Name:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="25"/>
+            <TextBox x:Name="TbName"
+                     Width="120"
+                     Height="40"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1">
+            <TextBlock x:Name="TblDescription"
+                   Text="Description:"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="25"/>
+            <TextBox x:Name="TbDescription"
+                     Width="120"
+                     Height="40"/>
+        </StackPanel>
+        <Button x:Name="btnOK"
+                Grid.Row="2"
+                Content="OK"
+                Margin="10"
+                FontSize="25"
+                Click="btnOK_Click"/>
+    </Grid>
+</Window>

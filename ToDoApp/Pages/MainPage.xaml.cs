@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ToDoApp.Data;
+using ToDoApp.Windows;
 
 namespace ToDoApp.Pages
 {
@@ -43,6 +44,20 @@ namespace ToDoApp.Pages
         private void taskListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             tbTaskDetail.Text = (taskListView.SelectedItem as MyTask)?.Description;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NewTaskWindow newTaskWindow = new NewTaskWindow();
+            if (newTaskWindow.ShowDialog() == true)
+            {
+                string name = newTaskWindow.newName;
+                string description = newTaskWindow.Description;
+                MyTask newTask = new MyTask { Name = name, Description = description };
+                Tasks.Add(newTask);
+                taskListView.ItemsSource = null; 
+                taskListView.ItemsSource = Tasks;
+            }
         }
     }
 }
