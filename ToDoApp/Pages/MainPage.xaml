@@ -24,18 +24,35 @@
             <ListView x:Name="taskListView" SelectionChanged="taskListView_SelectionChanged" ItemsSource="{Binding Tasks}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}" />
+                        <Grid Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Name}"  Grid.Column="0" VerticalAlignment="Center"/>
+                            <Button Margin="130,0,0,0" HorizontalAlignment="Right" x:Name="btnDelete" Content="Х" Click="btnDelete_Click"  Grid.Column="1"/>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Task Details" FontSize="24" Margin="10" x:Name="tbTaskDetail"/>
+            <TextBox  FontSize="24" IsEnabled="False" Margin="10" x:Name="tbTaskDetail" TextWrapping="Wrap"  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnSave" Width="100" Height="30" Content="Сохранить" Click="btnSave_Click"/>
+            <Button x:Name="btnSavf" Width="100" Height="30" Content="Сохранить" Click="btnSave_Click" Visibility="Hidden"/>
+            </StackPanel>
         </StackPanel>
         <Button x:Name="btnAdd"
                 Content="Добавить"
                 Click="btnAdd_Click"
                 FontSize="15"
-                Width="100"/>
+                Width="100"
+                Height="50"
+                IsEnabled="True"
+                Visibility="Visible"/>
     </Grid>
 </Page>
